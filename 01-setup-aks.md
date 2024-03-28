@@ -20,7 +20,6 @@
     --generate-ssh-keys \
     --node-vm-size Standard_B2s \
     --network-plugin azure \
-    --windows-admin-username localadmin
 
 ### Get aks Credentials
     az aks get-credentials --name $cluster_name --resource-group $resource_group
