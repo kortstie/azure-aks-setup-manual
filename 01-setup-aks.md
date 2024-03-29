@@ -16,10 +16,14 @@
     az aks create \
     --resource-group $resource_group \
     --name $cluster_name \
-    --node-count 2 \
+    --node-count 1 \
+    --min-count 1 \
+    --max-count 4 \
     --generate-ssh-keys \
     --node-vm-size Standard_B2s \
     --network-plugin azure \
+    --ssh-key-value ~/.ssh/id_ed25519.pub \
+    --tier free
 
 ### Get aks Credentials
     az aks get-credentials --name $cluster_name --resource-group $resource_group
