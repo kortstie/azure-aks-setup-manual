@@ -38,7 +38,7 @@
     az acr import  -n $acr_name --source docker.io/library/nginx:latest --image nginx:v1
 
 ### shutdown AKS Cluster
-    az aks stop --resource-group aks-rg1 --name aksdemo1
+    az aks stop --resource-group $resource_group --name $cluster_name
 
 ### show AKS Cluster Powerstate
     az aks show --resource-group aks-rg1 --name aksdemo1 |jq -r '.powerState'
