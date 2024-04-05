@@ -17,9 +17,10 @@
     --resource-group $resource_group \
     --name $cluster_name \
     --enable-cluster-autoscaler \
-    --node-count 1 \
-    --min-count 1 \
-    --max-count 4 \
+    --node-count 3 \
+    --min-count 3 \
+    --max-count 6 \
+    --zones 1 2 3
     --generate-ssh-keys \
     --node-vm-size Standard_B2s \
     --network-plugin azure \
