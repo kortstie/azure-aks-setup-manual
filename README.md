@@ -1,4 +1,4 @@
-# Manual setup of an azure aks multi zone cluster
+# Manual setup of an azure aks multi-zone cluster
 
 ## Purpose of this repo
 
