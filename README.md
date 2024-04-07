@@ -6,6 +6,11 @@
 - create an acr image registry and connect it to the aks cluster
 - setup a service principal to allow github actions to deploy images into the container registry
 
+## Prerequisites
+
+- azure account - you can test it for free, see https://azure.microsoft.com
+- working environment with all nessecary tools, [here is my setup guide](https://github.com/kortstie/k8s-working-environment)
+
 ## Setup aks (azure k8s service)
 
 ### Login to azure
