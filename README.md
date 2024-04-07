@@ -3,10 +3,10 @@
 ## Purpose of this repo
 
 - show how to set up a multi-zone azure aks cluster using the azure CLI
-- set up and connect an acr image registry and connect it to the aks cluster
-- set up a service principal to allow github actions to deploy images into the container registry
+- create an acr image registry and connect it to the aks cluster
+- setup a service principal to allow github actions to deploy images into the container registry
 
-## Setup aks (azure k8s service) and acr (Image registry)
+## Setup aks (azure k8s service)
 
 ### Login to azure
     az login
@@ -56,20 +56,17 @@ Now we can interact with our brand-new k8s cluster - let's verify that the nodes
     
     az aks update -n $cluster_name -g $resource_group --attach-acr $acr_name
 
-## Allow github actions to push images into our image registry
+## Setup a service principal to automate things
 
-### Setup service principal
+... like pushing images from github actions
 
-   groupId=$(az group show --name $resource_group --query id --output tsv)
-   az ad sp create-for-rbac --scope $groupId --role Contributor --json-auth
+    groupId=$(az group show --name $resource_group --query id --output tsv)
+    az ad sp create-for-rbac --scope $groupId --role Contributor --json-auth
 
-Save this output, we will store it later in github secrets.
+**Save** this output, we will store it later in github secrets.
 
-### Allow service principla to push to container registry
-
-   registryId=$(az acr show --name $acr_name --resource-group $resource_group --query id --output tsv)
-   az role assignment create --assignee <ClientId> --scope $registryId --role AcrPush
-
+    registryId=$(az acr show --name $acr_name --resource-group $resource_group --query id --output tsv)
+    az role assignment create --assignee <ClientId> --scope $registryId --role AcrPush
     
 ## Some usefull az Commands to work with our environment
 
