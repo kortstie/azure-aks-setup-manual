@@ -1,5 +1,7 @@
 # Manual setup of an azure aks multi-zone cluster
 
+![title](images/title.jpg)
+
 ## Purpose of this repo
 
 - show how to set up a multi-zone azure aks cluster using the azure CLI
